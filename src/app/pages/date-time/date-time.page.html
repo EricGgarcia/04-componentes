@@ -1,0 +1,67 @@
+
+<app-header titulo="DateTime"></app-header>
+
+<ion-content>
+
+<ion-list>
+
+  <ion-list-header>
+    <ion-label>Datos de Nacimiento</ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Fecha de Nacimiento</ion-label>
+    <ion-datetime-button datetime="datetime1"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime1" (ionChange)="cambioFecha( $event )"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-list-header>
+    <ion-label>Restricciones</ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Min y Max</ion-label>
+    <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime2" min="2025-01-01" max="2025-12-31"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Años</ion-label>
+    <ion-datetime-button datetime="datetime3"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime3" min="2015" max="2025"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Custom Options</ion-label>
+    <ion-datetime-button datetime="datetime4"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime4" #datetime>
+          <ion-buttons slot="buttons">
+            <ion-button (click)="datetime.reset()">Reset</ion-button>
+            <ion-button (click)="datetime.confirm()">Confirm</ion-button>
+          </ion-buttons>
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+</ion-list>
+
+</ion-content>
